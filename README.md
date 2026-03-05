@@ -2,68 +2,177 @@
 
 ## Overview
 
-Lithium-ion batteries power electric vehicles (EVs) and energy storage systems, but they degrade over time due to electrochemical aging. Predicting the **Remaining Useful Life (RUL)** of a battery is important for improving safety, reducing maintenance costs, and optimizing battery management systems.
+Lithium-ion batteries degrade over time due to chemical and thermal processes. Accurately predicting **Remaining Useful Life (RUL)** is critical for improving reliability, safety, and cost efficiency in electric vehicles and energy storage systems.
 
-This project aims to **predict battery lifespan using early lifecycle data (first 20–30% of charge–discharge cycles)** using machine learning and deep learning techniques.
+This project focuses on **predicting battery RUL using only early lifecycle data (first 20–30% of battery cycles)**. Early prediction enables proactive maintenance, early detection of defective batteries, and improved lifecycle management.
+
+The project explores both **traditional machine learning models and temporal deep learning architectures** for modeling battery degradation patterns.
 
 ---
 
 ## Problem Statement
 
-Battery degradation is nonlinear and influenced by several factors such as temperature, charging current, and usage patterns. Traditional methods often require a large portion of the battery lifecycle before reliable predictions can be made.
+Battery degradation is nonlinear and highly dependent on operational conditions. Traditional approaches often require **full lifecycle data**, which delays failure detection.
 
-This project explores whether it is possible to **predict the full lifespan of a lithium-ion battery using only early-cycle data**.
+This project aims to:
 
----
-
-## Objectives
-
-- Analyze lithium-ion battery degradation behavior
-- Predict Remaining Useful Life (RUL) from early lifecycle data
-- Compare traditional ML models with deep learning models
-- Evaluate temporal models for battery degradation prediction
+* Predict **Remaining Useful Life (RUL)** from early lifecycle data
+* Model degradation patterns using machine learning and deep learning
+* Compare performance of traditional ML models with temporal models
+* Evaluate prediction accuracy using standard regression metrics
 
 ---
 
-## Dataset
+## Datasets
 
-This project uses publicly available lithium-ion battery datasets.
+The project uses publicly available experimental battery degradation datasets.
 
-**NASA Battery Dataset**
-
+**1. NASA Battery Degradation Dataset**
 https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/
 
-The dataset contains battery charge-discharge cycle data including:
+**2. CALCE Battery Dataset (University of Maryland)**
+https://calce.umd.edu/battery-data
 
-- Voltage
-- Current
-- Temperature
-- Capacity degradation across cycles
+These datasets include measurements such as:
 
----
-
-## Planned Models
-
-The following models will be explored:
-
-- Linear Regression
-- Random Forest
-- LSTM (Long Short-Term Memory)
-- Transformer-based time-series models
+* Voltage
+* Current
+* Temperature
+* Charge / Discharge cycles
+* Capacity degradation over time
 
 ---
 
-## Project Status
+## Project Pipeline
 
-🚧 Work in progress
+Battery degradation prediction pipeline:
 
-Current phase:
-- Dataset exploration
-- Degradation curve analysis
-- Feature extraction
+```
+Battery Cycle Data
+        ↓
+Data Preprocessing
+        ↓
+Feature Extraction
+        ↓
+Model Training
+(Random Forest / LSTM / Transformer)
+        ↓
+RUL Prediction
+        ↓
+Model Evaluation
+(RMSE, MAE, R²)
+```
+
+---
+
+## Methodology
+
+### 1. Data Preprocessing
+
+* Load battery cycle data
+* Handle missing values
+* Normalize sensor measurements
+* Extract cycle-based features
+
+### 2. Feature Engineering
+
+Features extracted from battery cycles include:
+
+* Voltage statistics
+* Current profiles
+* Temperature variations
+* Capacity degradation trends
+* Cycle count features
+
+### 3. Model Development
+
+The following models are explored:
+
+**Baseline Models**
+
+* Linear Regression
+
+**Traditional ML Models**
+
+* Random Forest Regressor
+
+**Temporal Deep Learning Models**
+
+* LSTM (Long Short-Term Memory)
+* Transformer-based models
+
+These models are trained using **only early lifecycle data (20–30% cycles)**.
+
+---
+
+## Evaluation Metrics
+
+Model performance is evaluated using:
+
+* **RMSE (Root Mean Squared Error)**
+* **MAE (Mean Absolute Error)**
+* **R² Score**
+
+These metrics measure the accuracy of predicted battery RUL compared to actual lifecycle data.
+
+---
+
+## Explainable AI (Planned Feature)
+
+To understand which factors influence battery degradation, the project will implement **SHAP (SHapley Additive Explanations)** for model interpretability.
+
+This helps identify:
+
+* Key degradation drivers
+* Feature importance
+* Impact of temperature and voltage changes on battery lifespan
+
+---
+
+
+
+## Current Status
+
+This project is **currently under development as a major academic project**.
+
+Current progress includes:
+
+* Literature review
+* Dataset identification
+* Initial data exploration
+* Feature engineering experiments
+
+Model training and evaluation are ongoing.
+
+---
+
+## Expected Contributions
+
+This project aims to demonstrate:
+
+* Feasibility of **early-stage battery RUL prediction**
+* Comparison between ML and deep learning models
+* Identification of important degradation features
+* Practical insights for EV battery health monitoring
+
+---
+
+## Future Improvements
+
+Planned improvements include:
+
+* Advanced time-series modeling
+* Transformer-based degradation prediction
+* Explainable AI using SHAP
+* Visualization of degradation patterns
+* Model deployment for real-time prediction
 
 ---
 
 ## Author
 
-Vaibhav Dubey
+**Vaibhav Dubey**
+B.Tech Electrical Engineering
+National Institute of Technology, Kurukshetra
+
+GitHub: https://github.com/vaibhavdubey06
