@@ -31,7 +31,3 @@
    - Source: University of Maryland
    - Description: Battery cycling and calendar aging data
 
-## Notes
-
-- Add your own references as you research
-- Include DOI links when available
